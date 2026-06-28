@@ -25,6 +25,11 @@ STATIC_FILES = {
     "/static/index.html": ("index.html", "text/html; charset=utf-8"),
     "/static/styles.css": ("styles.css", "text/css; charset=utf-8"),
     "/static/app.js": ("app.js", "application/javascript; charset=utf-8"),
+    "/static/app-icon.png": ("app-icon.png", "image/png"),
+    "/static/manifest.webmanifest": ("manifest.webmanifest", "application/manifest+json; charset=utf-8"),
+    "/favicon.ico": ("app-icon.png", "image/png"),
+    "/apple-touch-icon.png": ("app-icon.png", "image/png"),
+    "/apple-touch-icon-precomposed.png": ("app-icon.png", "image/png"),
 }
 
 NAVY = "041A2E"
