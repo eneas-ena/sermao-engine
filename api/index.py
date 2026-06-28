@@ -4,13 +4,33 @@ import cgi
 import json
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler
+from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from api.analyze import analyze_submission
 from api.export import generate_export
 
 
+STATIC_ROOT = Path(__file__).resolve().parents[1] / "static"
+STATIC_FILES = {
+    "": ("index.html", "text/html; charset=utf-8"),
+    "/": ("index.html", "text/html; charset=utf-8"),
+    "/static/index.html": ("index.html", "text/html; charset=utf-8"),
+    "/static/styles.css": ("styles.css", "text/css; charset=utf-8"),
+    "/static/app.js": ("app.js", "application/javascript; charset=utf-8"),
+}
+
+
 class handler(BaseHTTPRequestHandler):
+    def do_GET(self) -> None:
+        path = urlparse(self.path).path
+        static_file = STATIC_FILES.get(path)
+        if static_file is None:
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
+        filename, content_type = static_file
+        self._send((STATIC_ROOT / filename).read_bytes(), content_type)
+
     def do_POST(self) -> None:
         path = urlparse(self.path).path.rstrip("/")
         if path == "/api/analyze":
