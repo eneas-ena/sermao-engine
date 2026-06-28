@@ -3,15 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071d33" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Infográficos" />
     <title>Infográficos de Sermões</title>
+    <link rel="icon" type="image/png" href="/static/app-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/static/manifest.webmanifest" />
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
     <main class="shell">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">Aplicativo online</p>
-          <h1>Infográficos de Sermões</h1>
+        <div class="brand">
+          <img class="brand-icon" src="/static/app-icon.png" alt="" />
+          <div>
+            <p class="eyebrow">Aplicativo online</p>
+            <h1>Infográficos de Sermões</h1>
+          </div>
         </div>
         <div class="actions">
           <button id="analyzeBtn" class="primary">Analisar sermão</button>
