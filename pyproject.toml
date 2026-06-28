@@ -1,0 +1,13 @@
+[project]
+name = "sermao-engine"
+version = "1.0.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "python-docx==1.2.0",
+  "python-pptx==1.0.2",
+  "Pillow==11.3.0",
+  "reportlab==4.4.3",
+]
+
+[tool.vercel]
+entrypoint = "api.index:handler"
