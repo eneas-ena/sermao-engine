@@ -1,7 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "api/*.py": {
+    "api/analyze.py": {
+      "maxDuration": 120
+    },
+    "api/export.py": {
       "maxDuration": 120
     },
     "api/pptx.js": {
